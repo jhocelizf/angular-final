@@ -1,0 +1,40 @@
+<div class="contenedor">
+  <div class="login-container">
+    <img src="../../../assets/images/logo.png" alt="Logo Side" class="m-2"/>
+    <form (ngSubmit)="login()" novalidate>
+      <mat-form-field appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input
+          matInput
+          type="text"
+          name="username"
+          [(ngModel)]="username"
+          required
+        />
+        <mat-hint>Ingrese => user o admin</mat-hint>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+        />
+        <mat-hint>Ingrese => pass</mat-hint>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!username || !password"
+      >
+        Login
+      </button>
+    </form>
+    <p *ngIf="loginError" class="error-message">
+      Usuario o Password inválidos.
+    </p>
+  </div>
+</div>
